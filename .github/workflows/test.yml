@@ -5,25 +5,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: 3.108.61.209 server ssh connection
-      uses: appleboy/ssh-action@master
+    - name: server ssh connection
+      uses: D3rHase/ssh-command-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.MY_SECRET }}
-        publickey: ${{ secrets.SSH_KEY }}
-        port: 22
+        HOST: ${{secrets.HOST}}                             # Remote server address / ip - Required: true
+        PORT: ${{secrets.PORT}}                             # Remote server port -  Default: 22 - Required: false
+        USER: ${{secrets.USER}}                             # Remote server user - Required: true
+        PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}       # Private ssh key registered on the remote server - Required: true
+        COMMAND: ${{secrets.COMMAND}}                       # Command to be executed - Default: echo Hello world! - Required: false
         script: |
           cd CICD-pipeline
           git pull origin master
-
-
-
-
-uses: D3rHase/ssh-command-action@{version}
-with:
-  HOST: ${{secrets.HOST}}                             # Remote server address / ip - Required: true
-  PORT: ${{secrets.PORT}}                             # Remote server port -  Default: 22 - Required: false
-  USER: ${{secrets.USER}}                             # Remote server user - Required: true
-  PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}       # Private ssh key registered on the remote server - Required: true
-  COMMAND: ${{secrets.COMMAND}}                       # Command to be executed - Default: echo Hello world! - Required: false
