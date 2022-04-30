@@ -13,4 +13,8 @@ jobs:
       with:
         host: 3.108.61.209
         username: ubuntu
-        key: ${{ secrets.MY
+        key: ${{ secrets.MY_SECRET }}
+        port: 22
+        script: |
+          cd CICD-pipeline
+          git pull origin master
