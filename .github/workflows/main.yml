@@ -1,11 +1,8 @@
-name: Deployement
-on:
-  push:
-    branches: [ masster ]
-    
+on: [push]
 jobs:
-  job_one:
-    name: Deploy
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - name: 3.108.61.209 server ssh connection
