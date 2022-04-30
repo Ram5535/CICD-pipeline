@@ -1,3 +1,25 @@
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: 3.108.61.209 server ssh connection
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.MY_SECRET }}
+        publickey: ${{ secrets.SSH_KEY }}
+        port: 22
+        script: |
+          cd CICD-pipeline
+          git pull origin master
+
+
+
+
 uses: D3rHase/ssh-command-action@{version}
 with:
   HOST: ${{secrets.HOST}}                             # Remote server address / ip - Required: true
