@@ -16,5 +16,3 @@ jobs:
         script: |
           cd /opt/CICD-pipeline
           echo ${{ secrets.PASSWORD }} | sudo -S git pull https://github.com/Ram5535/CICD-pipeline.git
-          cd /tmp
-          sh script.sh
