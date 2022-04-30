@@ -20,6 +20,13 @@ inputs:
     description: 'command to be executed'
     required: false
     default: 'echo Hello World!'
+    uses: D3rHase/ssh-command-action@{version}
+with:
+  HOST: ${{secrets.HOST}}                             # Remote server address / ip - Required: true
+  PORT: ${{secrets.PORT}}                             # Remote server port -  Default: 22 - Required: false
+  USER: ${{secrets.USER}}                             # Remote server user - Required: true
+  PRIVATE_SSH_KEY: ${{secrets.PRIVATE_SSH_KEY}}       # Private ssh key registered on the remote server - Required: true
+  COMMAND: ${{secrets.COMMAND}}   
 
 runs:
   using: 'docker'
