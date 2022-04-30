@@ -14,5 +14,5 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /opt/socialswag-lambda-automation/
+          cd /opt/CICD-pipeline
           echo ${{ secrets.PASSWORD }} | sudo -S git pull https://github.com/Ram5535/CICD-pipeline.git
