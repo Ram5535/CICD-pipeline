@@ -15,4 +15,4 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /opt/CICD-pipeline
-          echo ${{ secrets.PASSWORD }} | sudo -S git pull 
+          echo ${{ secrets.PASSWORD }} | sudo -S 
