@@ -1,1 +1,16 @@
-f
+name: Deployement
+on:
+  push:
+    branches: [ masster ]
+    
+jobs:
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 3.108.61.209 server ssh connection
+      uses: appleboy/ssh-action@master
+      with:
+        host: 3.108.61.209
+        username: ubuntu
+        key: ${{ secrets.MY
