@@ -1,0 +1,36 @@
+# action.yml
+name: 'SSH Command'
+description: 'Run a command on a remote server via ssh'
+
+inputs:
+  HOST:
+    description: '3.108.61.209'
+    required: true
+  PORT:
+    description: '22'
+    required: false
+    default: 22
+  USER:
+    description: 'ubuntu'
+    required: true
+  PRIVATE_SSH_KEY:
+    description: 'private ssh key registered on the server'
+    required: true
+  COMMAND:
+    description: 'command to be executed'
+    required: false
+    default: 'echo Hello World!'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.HOST }}
+    - ${{ inputs.PORT }}
+    - ${{ inputs.USER }}
+    - ${{ inputs.PRIVATE_SSH_KEY }}
+    - ${{ inputs.COMMAND }}
+
+branding:
+  icon: 'terminal'
+  color: 'yellow'
