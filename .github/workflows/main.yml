@@ -11,6 +11,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.MY_SECRET }}
+        publickey: ${{ secrets.SSH_KEY }}
         port: 22
         script: |
           cd CICD-pipeline
